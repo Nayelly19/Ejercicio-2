@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeina Inc.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #10df55;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #000000;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form input, form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            padding: 10px;
+            background-color: #10df55;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #0d9f45;
+        }
+        .portfolio img {
+            width: 19%;
+            height: auto;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .portfolio img:hover {
+            transform: scale(1.1);
+        }
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .testimonial-card {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            flex: 1 1 calc(33.333% - 20px);
+        }
+        /* Ventana emergente */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .close:hover {
+            color: #ff6347;
+        }
+        /* Enlaces de redes sociales */
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2em;
+        }
+        .social-links a:hover {
+            color: #10df55;
+        }
+        /* Estilos para la sección de FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item h3 {
+            color: #10df55;
+            cursor: pointer;
+        }
+        .faq-item p {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Bienvenido a Zeina Inc, una empresa de Servicios digitales</h1>
+        <p>Tu solución integral para tus necesidades empresariales</p>
+    </header>
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#descripcion">Descripción</a>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#testimoniales">Testimoniales</a>
+        <a href="#formulario">Formulario</a>
+        <a href="#noticias">Noticias</a>
+        <a href="#precios">Precios</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#faq">Preguntas Frecuentes</a>
+    </nav>
+    <!-- Contenido principal -->
+    <div class="container" id="inicio">
+        <h2>Inicio</h2>
+        <p>Somos una empresa dedicada a ofrecer soluciones innovadoras y de alta calidad para satisfacer las necesidades de nuestros clientes.</p>
+    </div>
+    <div class="container" id="contacto">
+        <h2>Información de Contacto</h2>
+        <p><strong>Dirección:</strong> Calle Principal #123, Ciudad</p>
+        <p><strong>Teléfono:</strong> +52 123 456 7890</p>
+        <p><strong>Email:</strong> zeinainc@gmail.com</p>
+    </div>
+    <div class="container" id="descripcion">
+        <h2>Descripción de la Empresa</h2>
+        <p>En Zeina Inc, nos especializamos en ofrecer soluciones personalizadas en consultoría, desarrollo web y marketing digital, diseñadas para ayudar a empresas de todos los tamaños a crecer y destacar en un mercado cada vez más competitivo.</p>
+    </div>
+    <div class="container" id="portafolio">
+        <h2>Portafolio</h2>
+        <div class="portfolio">
+            <img src="https://i.pinimg.com/736x/89/ec/2c/89ec2c3cd35ab301ce0e408c2d574edb.jpg" alt="Proyecto 1" class="portfolio-image" onclick="openModal(this)">
+            <img src="https://i.pinimg.com/736x/cd/46/f2/cd46f248e16ecf3fa23ebfd2fa2faea2.jpg" alt="Proyecto 2" class="portfolio-image" onclick="openModal(this)">
+            <img src="https://i.pinimg.com/736x/86/a0/1e/86a01e29b7cbeee3de592b103349b2eb.jpg" alt="Proyecto 3" class="portfolio-image" onclick="openModal(this)">
+            <img src="https://i.pinimg.com/736x/8d/31/31/8d31315c9aa0c09967828c3a974bf18e.jpg" alt="Proyecto 4" class="portfolio-image" onclick="openModal(this)">
+            <img src="https://i.pinimg.com/736x/5c/46/3f/5c463f8481c34c073ac222085184ffe1.jpg" alt="Proyecto 5" class="portfolio-image" onclick="openModal(this)">
+        </div>
+    </div>
+    <div class="container" id="testimoniales">
+        <h2>Testimoniales</h2>
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <p>"Excelente servicio, muy profesionales."</p>
+                <p>- Cliente 1</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Recomiendo esta empresa por su calidad."</p>
+                <p>- Cliente 2</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Cumplieron con todas mis expectativas."</p>
+                <p>- Cliente 3</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="formulario">
+        <h2>Formulario de Contacto</h2>
+        <form>
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Mensaje" rows="5" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <div class="container" id="noticias">
+        <h2>Noticias</h2>
+        <p>Nuestro enfoque se basa en entender a fondo las necesidades de cada cliente, desarrollando estrategias efectivas que optimizan su presencia en línea, mejoran su eficiencia operativa y maximizan su alcance.</p>
+        <h3>Nuestros servicios</h3>
+        <ul>
+            <li>✅ <strong>Consultoría empresarial:</strong> Brindamos asesoramiento estratégico para optimizar procesos, mejorar la toma de decisiones y fortalecer la competitividad de tu negocio.</li>
+            <li>✅<strong>Desarrollo web:</strong> Creamos sitios web a medida, desde páginas informativas hasta plataformas de comercio electrónico y aplicaciones personalizadas, asegurando funcionalidad, velocidad y diseño atractivo.</li>
+            <li>✅<strong>Marketing digital:</strong> Implementamos estrategias de SEO, publicidad digital (Google Ads, redes sociales), email marketing y contenido optimizado para aumentar la visibilidad y atraer clientes potenciales.</li>
+            <li>✅<strong>Transformación digital:</strong> Ayudamos a empresas a modernizar sus operaciones con herramientas tecnológicas que impulsan la productividad y la automatización.</li>
+        </ul>
+        <h3>Compromiso con la innovación y el crecimiento</h3>
+        <ul>
+            <li>Nos mantenemos a la vanguardia de las tendencias tecnológicas y de marketing para ofrecer soluciones efectivas y actualizadas.</li>
+            <li>Nuestro equipo de expertos trabaja de la mano con cada cliente para garantizar resultados tangibles y sostenibles.</li>
+        </ul>
+        <p>Si buscas potenciar tu negocio con estrategias innovadoras y un enfoque personalizado, en Zeina Inc. estamos listos para ayudarte a alcanzar tus objetivos.</p>
+        <p>📩 <strong>Contáctanos hoy mismo</strong> y llevemos tu negocio al siguiente nivel.</p>
+    </div>
+    <div class="container" id="precios">
+        <h2>Precios</h2>
+        <p>Consulta nuestros planes y servicios disponibles, o contáctanos directamente para brindarte una consulta personalizada en relación a tus necesidades.</p>
+        <h3>Planes y Precios Adaptados a Tu Negocio</h3>
+        <p>En [Nombre de la Empresa], ofrecemos planes de precios flexibles y adaptados a las necesidades de cada cliente. Nuestro objetivo es brindarte soluciones de calidad con una inversión justa y transparente.</p>
+        <h3>Nuestros Planes</h3>
+        <ul>
+            <li>
+                <strong>💡 Plan Básico – Desde $XXX/mes</strong>
+                <ul>
+                    <li>Ideal para emprendedores y pequeñas empresas</li>
+                    <li>Desarrollo web básico o auditoría de marketing digital</li>
+                    <li>Optimización SEO inicial</li>
+                    <li>Soporte y asesoría básica</li>
+                </ul>
+            </li>
+            <li>
+                <strong>🚀 Plan Profesional – Desde $XXX/mes</strong>
+                <ul>
+                    <li>Para negocios en crecimiento que buscan expandir su presencia digital</li>
+                    <li>Diseño web avanzado o gestión de campañas publicitarias</li>
+                    <li>Estrategia de marketing digital personalizada</li>
+                    <li>Soporte y optimización continua</li>
+                </ul>
+            </li>
+            <li>
+                <strong>🏆 Plan Empresarial – Precio a medida</strong>
+                <ul>
+                    <li>Soluciones personalizadas y escalables</li>
+                    <li>Desarrollo web avanzado, automatización y CRM</li>
+                    <li>Campañas de alto impacto en redes sociales y Google Ads</li>
+                    <li>Consultoría estratégica y soporte premium</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>¿Necesitas una propuesta personalizada?</h3>
+        <p>Sabemos que cada negocio es único. Si ninguno de estos planes se ajusta completamente a lo que buscas, podemos crear una solución a medida para ti.</p>
+        <p>📩 <strong>Contáctanos hoy mismo</strong> y solicita una cotización sin compromiso.</p>
+    </div>
+    <div class="container" id="recursos">
+        <h2>Recursos</h2>
+        <p>Guías, tutoriales y artículos útiles para nuestros clientes.</p>
+    </div>
+    <div class="container" id="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <p>¿Cómo podemos ayudarte? Consulta nuestras preguntas frecuentes.</p>
+        <div class="faq-item">
+            <h3 onclick="toggleFAQ(this)">1. ¿Qué servicios ofrece Zeina Inc?</h3>
+            <p>Ofrecemos servicios de consultoría empresarial, desarrollo web, marketing digital y transformación digital.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleFAQ(this)">2. ¿Cómo puedo contactar a Zeina Inc?</h3>
+            <p>Puedes contactarnos a través de nuestro formulario de contacto, por teléfono o por correo electrónico.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleFAQ(this)">3. ¿Ofrecen servicios personalizados?</h3>
+            <p>Sí, ofrecemos soluciones personalizadas adaptadas a las necesidades específicas de cada cliente.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleFAQ(this)">4. ¿Cuáles son los precios de los servicios?</h3>
+            <p>Nuestros precios varían según el plan y las necesidades del cliente. Consulta nuestra sección de precios para más detalles.</p>
+        </div>
+        <div class="faq-item">
+            <h3 onclick="toggleFAQ(this)">5. ¿Tienen soporte técnico?</h3>
+            <p>Sí, ofrecemos soporte técnico para todos nuestros servicios.</p>
+        </div>
+    </div>
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Zeina Inc. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- Ventana emergente -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Funciones para abrir y cerrar la ventana emergente
+        function openModal(img) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Función para mostrar/ocultar respuestas en la sección de FAQ
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+            } else {
+                answer.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
